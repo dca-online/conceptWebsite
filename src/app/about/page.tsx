@@ -117,7 +117,7 @@ export default function AboutPage() {
               </p>
               
               <p className="text-white/80 mb-6">
-                Today, we're proud to be at the forefront of digital design, combining retro-futuristic vaporwave aesthetics with cutting-edge technology to create websites and digital experiences that stand out in an increasingly homogenized digital landscape.
+                Today, we&apos;re proud to be at the forefront of digital design, combining retro-futuristic vaporwave aesthetics with cutting-edge technology to create websites and digital experiences that stand out in an increasingly homogenized digital landscape.
               </p>
               
               <div className="border-l-4 border-vaporwave-pink pl-4 mb-8">
