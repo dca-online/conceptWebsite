@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VaporStudio Website
+
+A modern vaporwave-themed website built with Next.js, featuring parallax scrolling and stunning visual effects.
+
+## Features
+
+- 🌌 Parallax scrolling background
+- 🎨 Vaporwave/synthwave aesthetic
+- 💫 Animated UI elements with Framer Motion
+- 📱 Fully responsive design
+- ✨ Interactive components
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ and npm/yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd siteFirma2
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Running with the Vaporwave Background
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If the background image doesn't appear correctly:
 
-## Learn More
+1. Run the image download script:
+```bash
+npm run save-bg
+```
 
-To learn more about Next.js, take a look at the following resources:
+This will download the vaporwave background image to the correct location.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/app/*` - Next.js pages and layouts
+- `src/components/*` - Reusable UI components
+- `public/assets/*` - Static assets like images
+- `public/fonts/*` - Custom fonts
 
-## Deploy on Vercel
+## Built With
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - For styling
+- [Framer Motion](https://www.framer.com/motion/) - For animations
+- [React Icons](https://react-icons.github.io/react-icons/) - For icons
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
