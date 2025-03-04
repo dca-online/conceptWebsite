@@ -7,7 +7,7 @@
  * Enables scroll snap for fullscreen sections
  */
 export const enableScrollSnap = () => {
-  // Add a small delay to ensure DOM is ready
+  // Delay added to ensure the DOM is fully loaded before applying scroll snap
   setTimeout(() => {
     document.documentElement.classList.add('has-scroll-snap');
     document.body.classList.add('has-scroll-snap');
@@ -30,7 +30,7 @@ export const disableScrollSnap = () => {
 export const scrollToSection = (id: string, smooth: boolean = true) => {
   const element = document.getElementById(id);
   if (element) {
-    // Special handling for CTA section to ensure footer display
+    // Special handling for the Call-To-Action section to ensure the footer is visible
     if (id === 'cta') {
       const scrollPosition = element.offsetTop;
       window.scrollTo({
@@ -59,7 +59,7 @@ export const setupDraggableScroller = (containerId: string): (() => void) => {
   let startX: number;
   let scrollLeft: number;
 
-  // Mouse events
+  // Mouse event handlers for draggable scrolling
   const mouseDownHandler = (e: MouseEvent) => {
     isDown = true;
     container.classList.add('grabbing');
@@ -86,7 +86,7 @@ export const setupDraggableScroller = (containerId: string): (() => void) => {
     container.scrollLeft = scrollLeft - walk;
   };
 
-  // Touch events
+  // Touch event handlers for draggable scrolling
   const touchStartHandler = (e: TouchEvent) => {
     isDown = true;
     container.classList.add('grabbing');
@@ -106,7 +106,7 @@ export const setupDraggableScroller = (containerId: string): (() => void) => {
     container.scrollLeft = scrollLeft - walk;
   };
 
-  // Add event listeners
+  // Attach event listeners for mouse and touch events
   container.addEventListener('mousedown', mouseDownHandler);
   container.addEventListener('mouseleave', mouseLeaveHandler);
   container.addEventListener('mouseup', mouseUpHandler);
@@ -116,7 +116,7 @@ export const setupDraggableScroller = (containerId: string): (() => void) => {
   container.addEventListener('touchend', touchEndHandler);
   container.addEventListener('touchmove', touchMoveHandler);
 
-  // Return cleanup function
+  // Cleanup function to remove event listeners when not needed
   return () => {
     container.removeEventListener('mousedown', mouseDownHandler);
     container.removeEventListener('mouseleave', mouseLeaveHandler);
@@ -145,17 +145,17 @@ export const toggleScrollSnap = () => {
  * @returns A cleanup function to remove event listeners
  */
 export const setupScrollListeners = (): (() => void) => {
-  // Initial setup based on screen size
+  // Initial setup to determine if scroll snap should be enabled based on screen size
   toggleScrollSnap();
 
-  // Update on window resize
+  // Adjust scroll snap settings when the window is resized
   const handleResize = () => {
     toggleScrollSnap();
   };
 
   window.addEventListener('resize', handleResize);
 
-  // Return cleanup function
+  // Cleanup function to remove resize event listener and disable scroll snap
   return () => {
     window.removeEventListener('resize', handleResize);
     disableScrollSnap();

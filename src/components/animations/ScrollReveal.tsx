@@ -34,7 +34,9 @@ const ScrollReveal = ({
     }
   }, [isInView, hasAnimated]);
   
-  // Define animation variants based on direction
+  // Configure animation variants based on scroll direction
+  // Apply directional transform based on animation settings
+  // Default case: fade in without directional movement
   const getVariants = (): Variants => {
     const variants: Variants = {
       hidden: { opacity: 0 },

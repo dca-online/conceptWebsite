@@ -184,6 +184,22 @@ export default function Home() {
         className="fullscreen-section relative flex items-center justify-center overflow-hidden pt-20"
         id="hero"
       >
+        {/* Decorative Elements */}
+        <Image
+          src="/assets/star.png"
+          alt=""
+          width={120}
+          height={120}
+          className="floating-decoration star-decoration"
+        />
+        <Image
+          src="/assets/ball.png"
+          alt=""
+          width={150}
+          height={150}
+          className="floating-decoration ball-decoration"
+        />
+        
         {/* Background elements */}
         <div className="absolute inset-0 bg-vaporwave-black/70 backdrop-blur-[3px] z-0">
           <RetroGrid color="rgba(185, 103, 255, 0.2)" opacity={0.5} />
@@ -248,6 +264,15 @@ export default function Home() {
         className="fullscreen-section py-32 relative z-10"
         id="intro"
       >
+        {/* Decorative Elements - Only curb decoration */}
+        <Image
+          src="/assets/curb.png"
+          alt=""
+          width={200}
+          height={200}
+          className="floating-decoration curb-decoration"
+        />
+        
         <div className="container mx-auto px-6">
           <div className="interlocked-cards mb-24">
             <div id="intro-card-1" className={`vapor-card glass-card appear-anim mt-16 ${isVisible['intro-card-1'] ? 'is-visible' : ''}`}>
@@ -327,6 +352,14 @@ export default function Home() {
         className="fullscreen-section bg-vaporwave-darkBlue/80 backdrop-blur-sm py-24 relative"
         id="services"
       >
+        {/* Decorative Elements - Face decoration */}
+        <Image
+          src="/assets/face.png"
+          alt=""
+          width={220}
+          height={220}
+          className="floating-decoration face-decoration"
+        />
         <div className="container mx-auto px-6 h-full flex flex-col justify-center">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-5xl font-bold mb-3">
@@ -385,6 +418,14 @@ export default function Home() {
         className="fullscreen-section py-24 relative z-10"
         id="portfolio"
       >
+        {/* Decorative Elements - Side face decoration */}
+        <Image
+          src="/assets/sideFace.png"
+          alt=""
+          width={200}
+          height={200}
+          className="floating-decoration side-face-decoration"
+        />
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -461,8 +502,18 @@ export default function Home() {
         className="fullscreen-section bg-gradient-to-br from-vaporwave-darkPurple/80 to-vaporwave-darkBlue/80 backdrop-blur-sm py-24 relative"
         id="cta"
       >
-        <div className="container mx-auto px-6 flex items-center justify-center h-full">
-          <div className="vapor-card glass-card max-w-4xl mx-auto border border-vaporwave-pink/20">
+        <div className="container mx-auto px-6 flex items-center justify-center h-full relative">
+          {/* Background face decoration */}
+          <Image
+            src="/assets/faces.png"
+            alt=""
+            width={400}
+            height={400}
+            className="floating-decoration faces-decoration"
+          />
+          
+          <div className="vapor-card glass-card max-w-4xl mx-auto border border-vaporwave-pink/20 relative z-10">
+            {/* Card content */}
             <div className="text-center">
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
                 Ready to <span className="text-vaporwave-yellow">Stand Out</span> in the Digital World?
@@ -481,6 +532,15 @@ export default function Home() {
               </Button>
             </div>
           </div>
+          
+          {/* Hand decoration under the card */}
+          <Image
+            src="/assets/hand.png"
+            alt=""
+            width={250}
+            height={250}
+            className="floating-decoration hand-decoration"
+          />
         </div>
       </section>
     </>

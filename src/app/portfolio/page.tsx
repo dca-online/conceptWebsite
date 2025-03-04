@@ -10,7 +10,7 @@ import Button from '@/components/ui/Button';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import RetroGrid from '@/components/animations/RetroGrid';
 
-// Portfolio categories
+// Available portfolio categories - Add new categories here as needed
 const categories = [
   'All',
   'Web Design',
@@ -20,7 +20,7 @@ const categories = [
   'Mobile',
 ];
 
-// Portfolio items
+// Portfolio project data - Update with new projects and maintain chronological order
 const portfolioItems = [
   {
     id: 'neon-dreams',

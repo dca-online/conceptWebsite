@@ -32,7 +32,7 @@ const GlitchText = ({
     className
   );
 
-  // Define glitch animation variants based on intensity
+  // Glitch animation settings based on intensity level
   const glitchVariants = {
     low: {
       initial: { x: 0 },
@@ -72,7 +72,7 @@ const GlitchText = ({
     },
   } as Record<string, Variants>;
 
-  // Define pseudo-element colors based on selected color
+  // Pseudo-element color settings based on the chosen color theme
   const beforeColor = color === 'pink' ? 'rgba(255, 113, 206, 0.7)' : 
                      color === 'blue' ? 'rgba(1, 205, 254, 0.7)' : 
                      color === 'purple' ? 'rgba(185, 103, 255, 0.7)' : 

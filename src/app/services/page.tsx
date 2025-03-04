@@ -8,6 +8,8 @@ import Button from '@/components/ui/Button';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import RetroGrid from '@/components/animations/RetroGrid';
 
+// Service offerings configuration - Update features and descriptions as services evolve
+
 // Services data
 const services = [
   {

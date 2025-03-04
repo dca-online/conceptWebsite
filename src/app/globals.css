@@ -7,14 +7,17 @@
 
 :root {
   /* Color variables */
-  --color-vaporwave-black: #121225;
-  --color-vaporwave-darkBlue: #1f1d42;
-  --color-vaporwave-darkPurple: #2a1b47;
-  --color-vaporwave-purple: #7b52ab;
-  --color-vaporwave-pink: #e94a8a;
-  --color-vaporwave-blue: #42cafd;
-  --color-vaporwave-mint: #91f9e5;
-  --color-vaporwave-yellow: #f8db74;
+  --color-synthwave-black: #09001f;
+  --color-synthwave-darkBlue: #160029;
+  --color-synthwave-darkPurple: #1a0b2e;
+  --color-synthwave-pink: #ff2a6d;
+  --color-synthwave-blue: #00f9ff;
+  --color-synthwave-purple: #9f00ff;
+  --color-synthwave-yellow: #ffb800;
+  --color-synthwave-neonPink: #ff71ce;
+  --color-synthwave-neonBlue: #01cdfe;
+  --color-synthwave-neonPurple: #b967ff;
+  --color-synthwave-neonGreen: #05ffa1;
   
   /* Card styles */
   --card-padding: 2rem;
@@ -23,13 +26,18 @@
   
   /* Scroll variables */
   --scroll-snap-time: 700ms;
+  
+  /* Synthwave grid */
+  --grid-color: rgba(255, 42, 109, 0.2);
+  --grid-size: 30px;
+  --grid-perspective: 50deg;
 }
 
 /* General styles */
 html, body {
   height: 100%;
   color: white;
-  background-color: var(--color-vaporwave-black);
+  background-color: var(--color-synthwave-black);
   overflow-x: hidden;
   scroll-behavior: smooth !important;
   font-family: 'Montserrat', sans-serif;
@@ -42,11 +50,148 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/assets/vaporwave-bg.jpeg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.4;
+  background: linear-gradient(to bottom, var(--color-synthwave-darkPurple), var(--color-synthwave-black));
   z-index: -10;
+}
+
+.static-bg::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30vh;
+  background: radial-gradient(circle at 50% 0%, var(--color-synthwave-pink) 0%, var(--color-synthwave-neonPink) 50%, transparent 100%);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+/* Synthwave grid */
+.synthwave-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.synthwave-grid::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  transform: rotateX(var(--grid-perspective)) translateZ(-100px);
+  animation: grid-move 20s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: rotateX(var(--grid-perspective)) translateZ(-100px) translateY(0);
+  }
+  100% {
+    transform: rotateX(var(--grid-perspective)) translateZ(-100px) translateY(var(--grid-size));
+  }
+}
+
+/* Neon text effects */
+.neon-text {
+  color: var(--color-synthwave-pink);
+  text-shadow: 
+    0 0 5px var(--color-synthwave-pink),
+    0 0 20px var(--color-synthwave-pink),
+    0 0 40px var(--color-synthwave-pink);
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+.neon-text-blue {
+  color: var(--color-synthwave-blue);
+  text-shadow: 
+    0 0 5px var(--color-synthwave-blue),
+    0 0 20px var(--color-synthwave-blue),
+    0 0 40px var(--color-synthwave-blue);
+  animation: neon-pulse-blue 2s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px var(--color-synthwave-pink),
+      0 0 20px var(--color-synthwave-pink),
+      0 0 40px var(--color-synthwave-pink);
+  }
+  50% {
+    text-shadow: 
+      0 0 10px var(--color-synthwave-pink),
+      0 0 30px var(--color-synthwave-pink),
+      0 0 60px var(--color-synthwave-pink);
+  }
+}
+
+@keyframes neon-pulse-blue {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px var(--color-synthwave-blue),
+      0 0 20px var(--color-synthwave-blue),
+      0 0 40px var(--color-synthwave-blue);
+  }
+  50% {
+    text-shadow: 
+      0 0 10px var(--color-synthwave-blue),
+      0 0 30px var(--color-synthwave-blue),
+      0 0 60px var(--color-synthwave-blue);
+  }
+}
+
+/* Card styles */
+.synthwave-card {
+  background: rgba(26, 11, 46, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 42, 109, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.synthwave-card:hover {
+  border-color: var(--color-synthwave-pink);
+  box-shadow: 
+    0 0 5px var(--color-synthwave-pink),
+    0 0 20px var(--color-synthwave-pink);
+  transform: translateY(-5px);
+}
+
+/* Scanline effect */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  :root {
+    --grid-size: 20px;
+    --grid-perspective: 45deg;
+  }
+  
+  .synthwave-grid::before {
+    background-size: var(--grid-size) var(--grid-size);
+  }
 }
 
 /* Section backgrounds */
@@ -67,7 +212,7 @@ html, body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(to right, var(--color-vaporwave-pink), var(--color-vaporwave-blue));
+  background: linear-gradient(to right, var(--color-synthwave-pink), var(--color-synthwave-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -170,17 +315,20 @@ p, span, a, div, button, input, textarea, li {
 }
 
 .mobile-menu {
-  background: rgba(18, 18, 37, 0.9);
+  background: rgba(26, 11, 46, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 2px solid transparent;
-  animation: pulse-border 3s infinite;
   z-index: 100;
 }
 
-@keyframes pulse-border {
-  0%, 100% { border-color: var(--color-vaporwave-pink); }
-  33% { border-color: var(--color-vaporwave-blue); }
-  66% { border-color: var(--color-vaporwave-mint); }
+.mobile-menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, 
+    rgba(255, 42, 109, 0.05) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 /* Interlocked cards section */
@@ -210,14 +358,17 @@ p, span, a, div, button, input, textarea, li {
 
 /* Float animation */
 .float-element {
-  /* Remove the default animation */
-  animation: none;
+  animation: levitate 4s ease-in-out infinite;
+  will-change: transform;
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+@keyframes levitate {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 /* Desktop statue with top overflow (head sticking out) */
@@ -267,37 +418,24 @@ p, span, a, div, button, input, textarea, li {
 
 @media (max-width: 768px) {
   .float-element {
+    position: relative;
     margin-top: 0 !important;
-    animation: none;            /* Remove animation on mobile too */
-    transform: scale(0.7);      /* Keep scaling for smaller screens */
-    max-height: 180px;          /* Limit height */
-    overflow: visible;          /* Ensure it doesn't get cut off */
+    margin-bottom: -100px !important; /* Create overflow at bottom */
+    transform: scale(0.8);
+    z-index: 10;
   }
   
-  /* Mobile-specific float animation - removed/not used */
-  @keyframes float-mobile {
-    0% { transform: scale(0.7) translateY(0px); }
-    50% { transform: scale(0.7) translateY(-10px); }
-    100% { transform: scale(0.7) translateY(0px); }
+  .float-element img {
+    max-height: none;
+    width: auto;
+    height: auto;
   }
-}
-
-/* Scanline effect */
-.scanline {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  background: linear-gradient(
-    to bottom,
-    transparent 50%,
-    rgba(32, 32, 64, 0.02) 51%,
-    rgba(32, 32, 64, 0.02) 100%
-  );
-  background-size: 100% 4px;
-  pointer-events: none;
+  
+  .levitate-shadow::after {
+    bottom: -10px;
+    width: 60%;
+    height: 15px;
+  }
 }
 
 /* Retro grid */
@@ -554,4 +692,395 @@ footer {
 .contact-page .relative.pt-32 .absolute.inset-0 {
   top: 0;
   height: 100%;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-synthwave-pink to-synthwave-purple 
+         text-white px-6 py-2.5 rounded-full text-sm font-medium 
+         transition-all duration-300 hover:shadow-neon-pink 
+         transform hover:-translate-y-0.5 hover:scale-105
+         border border-white/10;
+}
+
+.btn-outline {
+  @apply border-2 border-synthwave-pink text-white px-6 py-2.5 
+         rounded-full text-sm font-medium transition-all duration-300 
+         hover:shadow-neon-pink hover:bg-synthwave-pink/10 
+         transform hover:-translate-y-0.5 hover:scale-105;
+}
+
+/* Hero section text styles */
+.hero-gradient-text {
+  background: linear-gradient(to right, var(--color-synthwave-pink), var(--color-synthwave-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-subtitle {
+  color: var(--color-synthwave-blue);
+  text-shadow: 0 0 10px var(--color-synthwave-blue);
+}
+
+/* Hero section styles */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/vaporwave-bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* Grid overlay for hero */
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgba(9, 0, 31, 0.7) 0%,
+    rgba(26, 11, 46, 0.4) 100%
+  );
+}
+
+.hero-grid-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  transform: rotateX(var(--grid-perspective)) translateZ(-100px);
+  animation: grid-move 20s linear infinite;
+  opacity: 0.3;
+}
+
+/* Media query for mobile portrait orientation */
+@media (max-width: 768px) {
+  .hero-bg::before {
+    transform: rotate(90deg) scale(1.5);
+  }
+  
+  /* Adjust grid perspective for mobile */
+  .hero-grid-overlay::before {
+    --grid-perspective: 35deg;
+    background-size: calc(var(--grid-size) * 0.7) calc(var(--grid-size) * 0.7);
+  }
+}
+
+/* Add subtle shadow animation to complement levitation */
+.levitate-shadow {
+  position: relative;
+}
+
+.levitate-shadow::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, 
+    rgba(255, 42, 109, 0.3) 0%,
+    rgba(255, 42, 109, 0) 70%);
+  filter: blur(5px);
+  animation: shadowPulse 4s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateX(-50%) scale(0.8);
+  }
+}
+
+/* Decorative floating elements */
+.floating-decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+/* Only show decorations on desktop */
+@media (min-width: 1024px) {
+  .floating-decoration {
+    display: block;
+  }
+  
+  /* Hero section decorations */
+  .star-decoration {
+    width: 200px; /* Enlarged */
+    height: 200px;
+    left: 5%;
+    top: 15%;
+    animation: rotateStar 20s linear infinite;
+  }
+  
+  .ball-decoration {
+    width: 250px; /* Enlarged */
+    height: 250px;
+    right: 5%;
+    top: 20%;
+    animation: floatBall 8s ease-in-out infinite;
+  }
+  
+  /* Intro section decorations */
+  .curb-decoration {
+    width: 180px;
+    height: 180px;
+    right: 0;
+    bottom: -40px; /* Position at bottom right corner */
+    animation: floatCurb 10s ease-in-out infinite;
+  }
+  
+  /* Services section decorations */
+  .face-decoration {
+    width: 220px;
+    height: 220px;
+    right: 5%;
+    top: 50%; /* Align with the middle row of cards */
+    transform: translateY(-50%);
+    animation: pulseFace 12s ease-in-out infinite;
+  }
+  
+  /* Portfolio section decorations */
+  .side-face-decoration {
+    width: 180px;
+    height: 180px;
+    right: 5%;
+    top: 0;
+    animation: floatSideFace 11s ease-in-out infinite;
+  }
+  
+  /* CTA section decorations */
+  .faces-decoration {
+    width: 400px; /* Enlarged */
+    height: 400px;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    opacity: 0.15; /* More transparent for background */
+    z-index: 1; /* Behind the card */
+    animation: floatFaces 15s ease-in-out infinite;
+  }
+  
+  .hand-decoration {
+    width: 400px !important;
+    height: 400px !important;
+    left: 50%;
+    bottom: -250px !important; /* Position further down to be tangent with card */
+    transform: translateX(-50%);
+    z-index: 1;
+    animation: none !important; /* Remove animation */
+  }
+}
+
+@media (max-width: 768px) {
+  .hand-decoration {
+    width: 300px !important;
+    height: 300px !important;
+    bottom: -250px !important;
+    left: 50% !important; /* Ensure centering on mobile */
+    transform: translateX(-50%) !important; /* Ensure centering on mobile */
+  }
+}
+
+/* Hide decorations in mobile menu */
+.mobile-menu .floating-decoration {
+  display: none !important;
+}
+
+/* Ensure decorations don't interfere with content */
+.vapor-card,
+.glass-card,
+.vapor-card-gradient {
+  position: relative;
+  z-index: 10;
+}
+
+/* Navbar always on top */
+.navbar {
+  position: relative;
+  z-index: 50;
+}
+
+/* Content containers */
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Custom animations for each element */
+@keyframes floatHand {
+  0%, 100% { 
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  50% { 
+    transform: translateX(-50%) translateY(-20px) rotate(2deg);
+  }
+}
+
+@keyframes floatFaces {
+  0%, 100% { transform: translate(50%, -50%) scale(1); }
+  50% { transform: translate(50%, -50%) scale(1.1); }
+}
+
+/* Individual decorative element positions and animations */
+.ball-decoration {
+  width: 150px;
+  height: 150px;
+  right: -30px;
+  top: 20%;
+  animation: floatBall 8s ease-in-out infinite;
+}
+
+.cube-decoration {
+  width: 180px;
+  height: 180px;
+  left: -40px;
+  top: 40%;
+  animation: rotateCube 15s linear infinite;
+}
+
+.curb-decoration {
+  width: 200px;
+  height: 200px;
+  right: 10%;
+  bottom: 15%;
+  animation: floatCurb 10s ease-in-out infinite;
+}
+
+.face-decoration {
+  width: 220px;
+  height: 220px;
+  left: 5%;
+  top: 25%;
+  animation: pulseFace 12s ease-in-out infinite;
+}
+
+.faces-decoration {
+  width: 250px;
+  height: 250px;
+  right: 8%;
+  top: 30%;
+  animation: floatFaces 9s ease-in-out infinite;
+}
+
+.hand-decoration {
+  width: 400px !important;
+  height: 400px !important;
+  left: 50%;
+  bottom: -350px !important; /* Position further down to be tangent with card */
+  transform: translateX(-50%);
+  z-index: 1;
+  animation: none !important; /* Remove animation */
+}
+
+.side-face-decoration {
+  width: 200px;
+  height: 200px;
+  right: 12%;
+  top: 35%;
+  animation: floatSideFace 11s ease-in-out infinite;
+}
+
+.star-decoration {
+  width: 120px;
+  height: 120px;
+  left: 10%;
+  top: 15%;
+  animation: rotateStar 20s linear infinite;
+}
+
+/* Custom animations for each element */
+@keyframes floatBall {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, -30px) rotate(10deg); }
+}
+
+@keyframes rotateCube {
+  0% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(180deg) translateY(-20px); }
+  100% { transform: rotate(360deg) translateY(0); }
+}
+
+@keyframes floatCurb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-15px, -25px) scale(1.05); }
+}
+
+@keyframes pulseFace {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+}
+
+@keyframes floatFaces {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-25px, -20px) rotate(-5deg); }
+}
+
+@keyframes floatSideFace {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, -30px) scale(1.1); }
+}
+
+@keyframes rotateStar {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .floating-decoration {
+    transform: scale(0.7);
+    opacity: 0.6;
+  }
+  
+  .ball-decoration,
+  .cube-decoration,
+  .curb-decoration,
+  .face-decoration,
+  .faces-decoration,
+  .hand-decoration,
+  .side-face-decoration,
+  .star-decoration {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .hand-decoration {
+    width: 300px !important;
+    height: 300px !important;
+    bottom: -250px !important; /* Adjust for mobile to maintain tangency */
+  }
 }

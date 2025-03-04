@@ -30,7 +30,8 @@ const RetroGrid = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
-    // Set canvas size to match container
+    // Dynamically adjust canvas dimensions to match container size
+    // Reset canvas before redrawing
     const resizeCanvas = () => {
       const { width, height } = container.getBoundingClientRect();
       canvas.width = width;
@@ -51,7 +52,7 @@ const RetroGrid = ({
       ctx.lineWidth = 1;
       ctx.globalAlpha = opacity;
       
-      // Vertical lines
+      // Draw vertical grid lines
       for (let x = 0; x <= canvas.width; x += gridSize) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
@@ -59,7 +60,7 @@ const RetroGrid = ({
         ctx.stroke();
       }
       
-      // Horizontal lines
+      // Draw horizontal grid lines
       for (let y = 0; y <= canvas.height; y += gridSize) {
         ctx.beginPath();
         ctx.moveTo(0, y);
@@ -68,17 +69,17 @@ const RetroGrid = ({
       }
     };
     
-    // Initial setup
+    // Initialize canvas and event listeners
     resizeCanvas();
     
-    // Add resize listener
+    // Handle window resize events
     window.addEventListener('resize', resizeCanvas);
     
-    // Animation
+    // Setup animation loop if animation is enabled
     if (animate) {
       const tl = gsap.timeline({ repeat: -1 });
       
-      // Animate grid movement
+      // Calculate animation progress and apply offsets
       tl.to(canvas, {
         duration: 20,
         onUpdate: () => {
@@ -94,7 +95,7 @@ const RetroGrid = ({
           ctx.lineWidth = 1;
           ctx.globalAlpha = opacity;
           
-          // Vertical lines
+          // Draw vertical grid lines
           for (let x = -offsetX; x <= canvas.width; x += gridSize) {
             ctx.beginPath();
             ctx.moveTo(x, 0);
@@ -102,7 +103,7 @@ const RetroGrid = ({
             ctx.stroke();
           }
           
-          // Horizontal lines
+          // Draw horizontal grid lines
           for (let y = -offsetY; y <= canvas.height; y += gridSize) {
             ctx.beginPath();
             ctx.moveTo(0, y);
@@ -113,6 +114,7 @@ const RetroGrid = ({
       });
     }
     
+    // Clean up event listeners and animations on unmount
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       gsap.killTweensOf(canvas);

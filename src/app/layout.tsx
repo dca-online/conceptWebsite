@@ -8,7 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { setupScrollListeners } from '@/utils/scrolling';
 
-// Font configuration
+// Font configuration - Update versions and subsets as needed
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
@@ -35,9 +35,9 @@ export default function RootLayout({
   const pathname = usePathname();
   const isHomePage = pathname === '/';
   
-  // Set up animation and scroll observers
+  // Initialize animation and scroll behavior
   useEffect(() => {
-    // Intersection Observer for appear animations
+    // Configure intersection observer for scroll-based animations
     const observerOptions = {
       root: null,
       rootMargin: '0px',
@@ -54,12 +54,12 @@ export default function RootLayout({
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     
-    // Observe all elements with the 'appear-anim' class
+    // Apply scroll-based animations to elements with 'appear-anim' class
     document.querySelectorAll('.appear-anim').forEach((el) => {
       observer.observe(el);
     });
     
-    // Setup scroll snapping only if we're on the homepage
+    // Enable scroll snapping for homepage sections only
     let cleanup = () => {};
     if (isHomePage) {
       cleanup = setupScrollListeners();

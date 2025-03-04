@@ -8,7 +8,7 @@ import Button from '@/components/ui/Button';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import RetroGrid from '@/components/animations/RetroGrid';
 
-// Team members data
+// Team members data - Update when team composition changes
 const teamMembers = [
   {
     name: 'Alex Johnson',
@@ -32,7 +32,7 @@ const teamMembers = [
   },
 ];
 
-// Stats data
+// Stats data - Update quarterly
 const stats = [
   {
     icon: <FiUsers />,

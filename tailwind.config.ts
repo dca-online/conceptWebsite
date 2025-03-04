@@ -9,21 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        vaporwave: {
-          pink: "#e94a8a",
-          blue: "#42cafd",
-          purple: "#7b52ab",
-          yellow: "#f8db74",
-          mint: "#91f9e5",
-          darkPurple: "#2a1b47",
-          darkBlue: "#1f1d42",
-          black: "#121225",
-        },
-        neon: {
-          pink: "#fc46aa",
-          blue: "#00e8fc",
-          purple: "#d926f9",
-          green: "#00ff9f",
+        synthwave: {
+          // Primary colors
+          pink: "#ff2a6d",
+          blue: "#00f9ff",
+          purple: "#9f00ff",
+          yellow: "#ffb800",
+          // Secondary colors
+          darkPurple: "#1a0b2e",
+          darkBlue: "#160029",
+          black: "#09001f",
+          // Accent colors
+          neonPink: "#ff71ce",
+          neonBlue: "#01cdfe",
+          neonPurple: "#b967ff",
+          neonGreen: "#05ffa1",
+          // Gradient colors
+          gradientStart: "#2b1055",
+          gradientEnd: "#7597de",
         },
         retro: {
           gray: "#c0c0c0",
@@ -36,6 +39,12 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'grid-pattern': "url('/assets/grid-bg.svg')",
+        'synthwave-sun': "radial-gradient(circle at 50% 0%, #ff2a6d 0%, #ff71ce 50%, transparent 100%)",
+      },
+      boxShadow: {
+        'neon-pink': '0 0 5px #ff2a6d, 0 0 20px #ff2a6d, 0 0 40px #ff2a6d',
+        'neon-blue': '0 0 5px #00f9ff, 0 0 20px #00f9ff, 0 0 40px #00f9ff',
+        'neon-purple': '0 0 5px #9f00ff, 0 0 20px #9f00ff, 0 0 40px #9f00ff',
       },
       fontFamily: {
         sans: ['Montserrat', 'var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
@@ -47,6 +56,7 @@ const config: Config = {
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'scanline': 'scanline 8s linear infinite',
+        'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
       },
       keyframes: {
         glitch: {
@@ -63,6 +73,16 @@ const config: Config = {
         scanline: {
           '0%': { transform: 'translateY(-100%)' },
           '100%': { transform: 'translateY(100%)' },
+        },
+        'neon-pulse': {
+          '0%, 100%': { 
+            textShadow: '0 0 5px #ff2a6d, 0 0 20px #ff2a6d, 0 0 40px #ff2a6d',
+            boxShadow: '0 0 5px #ff2a6d, 0 0 20px #ff2a6d, 0 0 40px #ff2a6d'
+          },
+          '50%': { 
+            textShadow: '0 0 10px #ff2a6d, 0 0 30px #ff2a6d, 0 0 60px #ff2a6d',
+            boxShadow: '0 0 10px #ff2a6d, 0 0 30px #ff2a6d, 0 0 60px #ff2a6d'
+          },
         }
       },
     },

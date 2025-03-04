@@ -7,7 +7,7 @@ import { FiArrowUp } from 'react-icons/fi';
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when page is scrolled down
+  // Display the scroll-to-top button when the user scrolls down past 500px
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 500) {
@@ -22,7 +22,7 @@ const ScrollToTop = () => {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  // Scroll to top smooth function
+  // Function to smoothly scroll the page back to the top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
