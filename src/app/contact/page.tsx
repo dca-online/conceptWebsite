@@ -78,7 +78,7 @@ export default function ContactPage() {
               </h1>
               
               <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-                Have a project in mind? We'd love to hear about it. Drop us a line and let's create something extraordinary together.
+                Have a project in mind? We&apos;d love to hear about it. Drop us a line and let&apos;s create something extraordinary together.
               </p>
             </motion.div>
           </div>
@@ -182,7 +182,7 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-white font-display text-xl mb-2">Message Sent!</h3>
                     <p className="text-white/70">
-                      Thank you for reaching out. We'll get back to you as soon as possible.
+                      Thank you for reaching out. We&apos;ll get back to you as soon as possible.
                     </p>
                   </div>
                 ) : (

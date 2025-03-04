@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Inter, Orbitron, Montserrat } from 'next/font/google';
 import { usePathname } from 'next/navigation';
 import './globals.css';

@@ -204,7 +204,7 @@ export default function PortfolioPage() {
                 <span className="text-vaporwave-pink">TRUSTED</span> BY
               </h2>
               <p className="text-white/70 max-w-2xl mx-auto">
-                We've had the pleasure of working with amazing clients from startups to established brands.
+                We&apos;ve had the pleasure of working with amazing clients from startups to established brands.
               </p>
             </div>
           </ScrollReveal>
@@ -235,7 +235,7 @@ export default function PortfolioPage() {
               </h2>
               
               <p className="text-white/80 text-lg mb-8">
-                Let's collaborate on your next project and create something that stands out in the digital landscape.
+                Let&apos;s collaborate on your next project and create something that stands out in the digital landscape.
               </p>
               
               <Button href="/contact" variant="primary" size="lg">

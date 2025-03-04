@@ -3,13 +3,12 @@
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { FiArrowRight, FiCode, FiLayout, FiPenTool, FiMonitor, FiSmartphone, FiLink, FiAward, FiChevronDown } from 'react-icons/fi';
 
 import Button from '@/components/ui/Button';
 import GlitchText from '@/components/ui/GlitchText';
-import ScrollReveal from '@/components/animations/ScrollReveal';
 import RetroGrid from '@/components/animations/RetroGrid';
 import { setupDraggableScroller } from '@/utils/scrolling';
 
@@ -258,7 +257,7 @@ export default function Home() {
                     <span className="text-vaporwave-pink">Redefining</span> Digital Experiences
                   </h2>
                   <p className="text-white/70 mb-6">
-                    We blend nostalgic aesthetics with cutting-edge technology to create digital experiences that stand out in today's crowded landscape. Our designs capture the essence of retro-futurism while delivering modern functionality.
+                    We blend nostalgic aesthetics with cutting-edge technology to create digital experiences that stand out in today&apos;s crowded landscape. Our designs capture the essence of retro-futurism while delivering modern functionality.
                   </p>
                   <Link href="/about" className="text-vaporwave-pink hover:text-vaporwave-blue flex items-center group transition-colors duration-300">
                     Learn more about our approach 
@@ -469,7 +468,7 @@ export default function Home() {
                 Ready to <span className="text-vaporwave-yellow">Stand Out</span> in the Digital World?
               </h2>
               <p className="text-white/70 text-xl mb-8">
-                Let's create something amazing together. Our team is ready to bring your vision to life with our unique vaporwave aesthetic.
+                Let&apos;s create something amazing together. Our team is ready to bring your vision to life with our unique vaporwave aesthetic.
               </p>
               <Button 
                 href="/contact" 

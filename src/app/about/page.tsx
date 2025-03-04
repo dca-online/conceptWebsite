@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { FiUsers, FiAward, FiCode, FiClock } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
@@ -123,7 +122,7 @@ export default function AboutPage() {
               
               <div className="border-l-4 border-vaporwave-pink pl-4 mb-8">
                 <p className="text-white/90 italic">
-                  "We don't just build websites; we create digital time machines that transport users to a place where nostalgia meets the future."
+                  &quot;We don&apos;t just build websites; we create digital time machines that transport users to a place where nostalgia meets the future.&quot;
                 </p>
                 <p className="text-vaporwave-blue mt-2">— Alex Johnson, Creative Director</p>
               </div>
@@ -208,7 +207,7 @@ export default function AboutPage() {
               </h2>
               
               <p className="text-white/80 text-lg mb-8">
-                We're always looking for talented individuals who share our passion for innovative design and cutting-edge technology.
+                We&apos;re always looking for talented individuals who share our passion for innovative design and cutting-edge technology.
               </p>
               
               <Button href="/careers" variant="primary">
